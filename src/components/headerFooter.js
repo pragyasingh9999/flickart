@@ -11,13 +11,13 @@ const Header = () => {
         <div className={nav.logo}><h1>Flickart</h1></div>
         <ul className={nav.menu}>
           <li><Link to="/" className={nav.active}>Home</Link></li>
-          <li><a href="#">New Arrivals</a></li>
+          <li><Link to="/newarrivals">New Arrivals</Link></li>
           <li> <div className={nav.dropdown}>
-            <a href="#" className={nav.dropbtn}>Section</a>
+            <a className={nav.dropbtn}>Category</a>
             <div className={nav.dropdowncontent}>
-              <a href="#">Men</a>
-              <a href="#">Women</a>
-              <a href="#">Kids</a>
+              <Link to="/menproduct">Men</Link>
+              <Link to="/womenproduct">Women</Link>
+              <Link to="/jewellery">Jewellery</Link>
             </div>
           </div>
           </li>
@@ -29,28 +29,29 @@ const Header = () => {
 }
 
 const Header2 = (props) => {
+
   return (
     <>
       <nav className={nav.navbar}>
         <div className={nav.logo}><h1>Flickart</h1></div>
         <ul className={nav.menu}>
           <li><Link to="/" className={nav.active}>Home</Link></li>
-          <li><a href="#">New Arrivals</a></li>
+          <li><Link to="/newarrivals">New Arrivals</Link></li>
           <li> <div className={nav.dropdown}>
-            <a href="#" className={nav.dropbtn}>Section</a>
+            <a className={nav.dropbtn}>Category</a>
             <div className={nav.dropdowncontent}>
-              <a href="#">Men</a>
-              <a href="#">Women</a>
-              <a href="#">Kids</a>
+              <Link to="/menproduct">Men</Link>
+              <Link to="/womenproduct">Women</Link>
+              <Link to="/jewellery">Jewellery</Link>
             </div>
           </div>
           </li>
           <li> <div className={nav.dropdown}>
-            <a href="#" className={nav.dropbtn}><i className='bx bx-user-circle'></i>{props.data}</a>
+            <a className={nav.dropbtn}><i className='bx bx-user-circle'></i>{props.data}</a>
             <div className={nav.dropdowncontent}>
-              <a href="#">Profile</a>
+              <a >Profile</a>
               <Link to="/cart">Cart</Link>
-              <a href="#">Logout</a>
+              <a >Logout</a>
             </div>
           </div>
           </li>
@@ -70,6 +71,7 @@ const Footer = () => {
     </>
   )
 }
+
 
 const HomeContent = (props) => {
 

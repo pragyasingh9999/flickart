@@ -2,7 +2,6 @@ import React from "react";
 import home from '../css/home.module.css';
 
 const ValidCart = (props) => {
-   console.log(props.obj.data);
     return (
         <>
             <div className={home.homebody}>
