@@ -20,6 +20,9 @@ const Cart = () => {
                     if(res.data!=="empty cart"){
                     setCart(res.data);
                     }
+                    else{
+                        alert("Empty cart");
+                    }
                     
                 }).catch(error => {
                     console.log(error.message);

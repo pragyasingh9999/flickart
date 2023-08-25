@@ -1,7 +1,25 @@
 import React from "react";
 import home from '../css/home.module.css';
+import axios from "axios";
 
 const ValidCart = (props) => {
+
+    const removeFromCart= async(id)=>{
+        
+        const token = sessionStorage.getItem('token');
+        const axiosInstance = axios.create({
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+        });
+
+        await axiosInstance.post('http://localhost:8000/removefromcart', { id })
+        .then(res=>{
+            alert("Product removed from cart");
+        }).catch(error=>{
+            console.log(error.message);
+        })
+    }
     return (
         <>
             <div className={home.homebody}>
@@ -17,7 +35,7 @@ const ValidCart = (props) => {
                                 <div className={home.title}>{item.title}</div>
                                 <div className={home.box}>
                                     <div className={home.price}>${item.price}</div>
-                                    <button className={home.btn}>Remove from cart</button>
+                                    <button className={home.btn} onClick={() => removeFromCart(item.id)}>Remove from cart</button>
                                 </div>
 
                             </div>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Header = () => {
+
   return (
     <>
       <nav className={nav.navbar}>
@@ -13,7 +14,7 @@ const Header = () => {
           <li><Link to="/" className={nav.active}>Home</Link></li>
           <li><Link to="/newarrivals">New Arrivals</Link></li>
           <li> <div className={nav.dropdown}>
-            <a className={nav.dropbtn}>Category</a>
+            <Link className={nav.dropbtn}>Category</Link>
             <div className={nav.dropdowncontent}>
               <Link to="/menproduct">Men</Link>
               <Link to="/womenproduct">Women</Link>
@@ -21,7 +22,7 @@ const Header = () => {
             </div>
           </div>
           </li>
-          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/login" >Login</Link></li>
         </ul>
       </nav>
     </>
@@ -30,6 +31,14 @@ const Header = () => {
 
 const Header2 = (props) => {
 
+  const handleLogout= ()=>{
+    const token1 = sessionStorage.getItem('token');
+    console.log(token1);
+    sessionStorage.removeItem('token');
+    const token = sessionStorage.getItem('token');
+    console.log(token);
+  }
+
   return (
     <>
       <nav className={nav.navbar}>
@@ -38,7 +47,7 @@ const Header2 = (props) => {
           <li><Link to="/" className={nav.active}>Home</Link></li>
           <li><Link to="/newarrivals">New Arrivals</Link></li>
           <li> <div className={nav.dropdown}>
-            <a className={nav.dropbtn}>Category</a>
+            <Link className={nav.dropbtn}>Category</Link>
             <div className={nav.dropdowncontent}>
               <Link to="/menproduct">Men</Link>
               <Link to="/womenproduct">Women</Link>
@@ -47,11 +56,11 @@ const Header2 = (props) => {
           </div>
           </li>
           <li> <div className={nav.dropdown}>
-            <a className={nav.dropbtn}><i className='bx bx-user-circle'></i>{props.data}</a>
+            <Link className={nav.dropbtn}><i className='bx bx-user-circle'></i>{props.data}</Link>
             <div className={nav.dropdowncontent}>
-              <a >Profile</a>
+              <Link to="" >Profile</Link>
               <Link to="/cart">Cart</Link>
-              <a >Logout</a>
+              <Link to="/" onClick={handleLogout} >Logout</Link>
             </div>
           </div>
           </li>
@@ -66,7 +75,7 @@ const Footer = () => {
   return (
     <>
       <div className="footer">
-        <p>Copyrights at <a href="#">Flickart</a></p>
+        <p>Copyrights at <Link to="#">Flickart</Link></p>
       </div>
     </>
   )
@@ -102,7 +111,9 @@ const HomeContent = (props) => {
       <section className={home.content}>
         <h1> New Arrivals For Men & Women</h1>
         <p>Get The Best Women Fashion Arrivals</p>
+        <Link to="/newarrivals">
         <button>Shop Now</button>
+        </Link>
       </section>
 
       <h1 className={home.pheading}>Our Products</h1>
